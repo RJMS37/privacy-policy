@@ -1,70 +1,657 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Privacy Policy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | BYOB - Client & Project Hub</title>
+  <meta name="description" content="Official Privacy Policy for BYOB (Bring Your Own Budget) mobile application and digital client management platform." />
+  <meta name="theme-color" content="#070b14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --card-bg: rgba(15, 23, 42, 0.72);
+      --card-border: rgba(56, 189, 248, 0.16);
+      --card-hover-border: rgba(56, 189, 248, 0.45);
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --accent-violet: #818cf8;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --code-bg: #0d1527;
+      --glow: rgba(56, 189, 248, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 60%, rgba(129, 140, 248, 0.08) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
+      padding-bottom: 80px;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-mono {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Top Sticky Status Bar */
+    .terminal-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 11, 20, 0.85);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      letter-spacing: 0.5px;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .nav-tags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tag-badge {
+      font-size: 11px;
+      font-family: 'Fira Code', monospace;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.08);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* Main Container */
+    .layout-wrapper {
+      max-width: 960px;
+      margin: 40px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 24px var(--glow);
+      margin-bottom: 32px;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-emerald), transparent);
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge-pill {
+      font-size: 12px;
+      font-family: 'Fira Code', monospace;
+      font-weight: 500;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent-emerald);
+      border-radius: 9999px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    /* Quick Specs Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .spec-item {
+      font-size: 13px;
+    }
+
+    .spec-label {
+      color: var(--text-dim);
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .spec-val {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Policy Navigation Bar */
+    .policy-nav-bar {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--card-border) transparent;
+    }
+
+    .nav-chip {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 14px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .nav-chip:hover {
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 32px 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .section-card:hover {
+      border-color: var(--card-hover-border);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-header-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-num {
+      font-family: 'Fira Code', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .section-heading {
+      font-size: 21px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 14.5px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    li {
+      position: relative;
+      padding-left: 24px;
+      color: var(--text-muted);
+      font-size: 14.5px;
+    }
+
+    li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-family: 'Fira Code', monospace;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    li strong {
+      color: var(--text-main);
+    }
+
+    /* Code Box */
+    .code-box {
+      background: var(--code-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'Fira Code', monospace;
+      font-size: 13px;
+      color: #e2e8f0;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+
+    .code-box .token-key { color: var(--accent-cyan); }
+    .code-box .token-val { color: var(--accent-emerald); }
+    .code-box .token-comment { color: var(--text-dim); }
+
+    /* Callout */
+    .callout-box {
+      border-left: 3px solid var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.06);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent-emerald);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .callout-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-cyan);
+      color: #070b14;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      margin-top: 14px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .contact-email-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 12.5px;
+      color: var(--text-dim);
+      font-family: 'Fira Code', monospace;
+    }
+
+    footer a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .hero-title { font-size: 28px; }
+      .hero-banner { padding: 26px 20px; }
+      .section-card { padding: 24px 18px; }
+      .terminal-nav { padding: 10px 16px; }
+    }
+  </style>
 </head>
-<body style="font-family: Arial; padding: 20px; line-height: 1.6;">
+<body>
 
-<h1>Privacy Policy for ₹wise</h1>
-<p><strong>Effective Date:</strong> April 2026</p>
+  <!-- Top Code Nav -->
+  <header class="terminal-nav">
+    <div class="brand-group">
+      <div class="status-dot"></div>
+      <div>
+        <div class="brand-title font-mono">BYOB // PRIVACY_ENGINE</div>
+        <div class="brand-sub font-mono">v1.0.0 &bull; PROD_RELEASE</div>
+      </div>
+    </div>
+    <div class="nav-tags">
+      <span class="tag-badge">GOOGLE_PLAY_READY</span>
+      <span class="tag-badge">AES-256</span>
+    </div>
+  </header>
 
-<p>Thank you for using <strong>₹wise</strong>. We are committed to protecting your privacy and ensuring transparency in how your data is handled.</p>
+  <main class="layout-wrapper">
 
-<h2>1. Information We Collect</h2>
-<ul>
-  <li><strong>Mobile Number:</strong> Used for account authentication and subscription access.</li>
-  <li><strong>SMS Data (Transaction Alerts Only):</strong> We request access to SMS messages only to identify and display financial transaction alerts (such as UPI or banking notifications) required for the core functionality of the app.</li>
-  <li><strong>Usage Data:</strong> Basic, anonymized data to improve app performance and stability.</li>
-</ul>
+    <!-- Hero Card -->
+    <section class="hero-banner">
+      <div class="hero-meta">
+        <span class="hero-badge-pill">&#10003; Verified Privacy Framework</span>
+        <span class="font-mono" style="font-size: 12px; color: var(--text-dim);">Effective: October 2026</span>
+      </div>
+      <h1 class="hero-title">Privacy Policy for <span>BYOB</span></h1>
+      <p class="hero-subtitle">
+        This Privacy Policy outlines how <strong>BYOB</strong> ("Bring Your Own Budget" / "Build Your Own Business") collects, uses, safeguards, and respects your data across our Customer Application and Management Portal.
+      </p>
 
-<h2>2. How We Use Your Information</h2>
-<ul>
-  <li>To identify and display transaction alerts within the app dashboard.</li>
-  <li>To help users track spending patterns and history.</li>
-  <li>To provide in-app spending insights and analytics based on transaction alerts processed locally on your device.</li>
-  <li>To authenticate users and manage subscription plans.</li>
-</ul>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="spec-label">Application ID</div>
+          <div class="spec-val font-mono">com.byob.customer</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Platform Scope</div>
+          <div class="spec-val">Android &amp; Digital Hub</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Owner / Developer</div>
+          <div class="spec-val font-mono">RJMS37 / BYOB Team</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Last Updated</div>
+          <div class="spec-val font-mono">October 19, 2026</div>
+        </div>
+      </div>
+    </section>
 
-<h2>3. Data Storage and Security</h2>
-<ul>
-  <li>All financial transaction data is processed and stored locally on your device.</li>
-  <li>We do not store, upload, sync, or transmit your SMS data, transaction history, or financial information to external servers.</li>
-  <li>All such data is used only for local analysis within the app.</li>
-  <li>We apply reasonable security practices to protect your information.</li>
-</ul>
+    <!-- Navigation Chips -->
+    <nav class="policy-nav-bar" aria-label="Policy Sections">
+      <a href="#collection" class="nav-chip">01. Data Collection</a>
+      <a href="#usage" class="nav-chip">02. Data Usage</a>
+      <a href="#permissions" class="nav-chip">03. Permissions</a>
+      <a href="#storage" class="nav-chip">04. Storage &amp; Security</a>
+      <a href="#sharing" class="nav-chip">05. Third Parties</a>
+      <a href="#rights" class="nav-chip">06. Deletion &amp; Rights</a>
+      <a href="#contact" class="nav-chip">07. Contact</a>
+    </nav>
 
-<h2>4. Data Sharing</h2>
-<p>We do not sell, trade, or share your personal or financial data with third parties.</p>
+    <!-- 01. Information We Collect -->
+    <article id="collection" class="section-card">
+      <div class="card-header-row">
+        <span class="section-num">01</span>
+        <h2 class="section-heading">Information We Collect</h2>
+      </div>
+      <p>
+        We collect only the minimum necessary data required to create customized project estimates, manage project milestones, and provide authenticated access to client portals:
+      </p>
+      <ul>
+        <li>
+          <strong>Account &amp; Profile Credentials:</strong> When you register or log in, we collect your Full Name, Email Address, and Phone Number for authentication, session recovery, and account identification.
+        </li>
+        <li>
+          <strong>Google OAuth Data:</strong> When utilizing Google Sign-In, we receive your public profile name, email address, and profile picture avatar via secure Google Identity Services tokens.
+        </li>
+        <li>
+          <strong>Project &amp; Quotation Requests:</strong> Project titles, category requirements, duration timelines, scope descriptions, and milestone budget preferences you configure inside the Quotation Builder.
+        </li>
+        <li>
+          <strong>File Attachments:</strong> Design files, wireframes, PDFs, or specification briefs you choose to upload alongside your quotation requests.
+        </li>
+        <li>
+          <strong>Invoicing &amp; Transaction Milestones:</strong> Records of advance payments, pending invoice balances, and milestone completion statuses. (Note: No sensitive payment card numbers or banking PINs are processed or stored on our servers).
+        </li>
+        <li>
+          <strong>Technical &amp; Diagnostics Data:</strong> Anonymized app performance metrics, OS release, device model, and crash logs to maintain app stability.
+        </li>
+      </ul>
 
-<h2>5. Permissions Usage</h2>
-<ul>
-  <li>SMS permission is used strictly to access transaction-related messages required for core app functionality, including providing spending insights and analytics.</li>
-  <li>All SMS data is processed locally on the device, and no financial data is stored or transmitted externally.</li>
-  <li>We do not read or process personal messages unrelated to financial transactions.</li>
-  <li>We request only the minimum necessary permissions required for the app to function.</li>
-</ul>
+      <div class="code-box">
+        <span class="token-comment">// Sample Data Manifest Schematics</span><br />
+        {<br />
+        &nbsp;&nbsp;<span class="token-key">"clientId"</span>: <span class="token-val">"usr_2026_09x"</span>,<br />
+        &nbsp;&nbsp;<span class="token-key">"authProvider"</span>: <span class="token-val">"google_oauth2 | email_phone"</span>,<br />
+        &nbsp;&nbsp;<span class="token-key">"quotationSync"</span>: <span class="token-val">true</span>,<br />
+        &nbsp;&nbsp;<span class="token-key">"encryptionAtRest"</span>: <span class="token-val">"AES-256-GCM"</span><br />
+        }
+      </div>
+    </article>
 
-<h2>6. Subscription Information</h2>
-<ul>
-  <li>The app provides a 3-day free trial and a 1-year premium subscription plan.</li>
-  <li>Subscription status is securely managed.</li>
-</ul>
+    <!-- 02. How We Use Information -->
+    <article id="usage" class="section-card">
+      <div class="card-header-row">
+        <span class="section-num">02</span>
+        <h2 class="section-heading">How We Use Your Information</h2>
+      </div>
+      <p>The information collected is used strictly for operational purposes:</p>
+      <ul>
+        <li>To compute project quotation estimates and transmit client proposals to development teams.</li>
+        <li>To track real-time project progress, milestone deliveries, and phase activations.</li>
+        <li>To synchronize invoice statuses, advance receipts, and client financial dashboards.</li>
+        <li>To authenticate accounts securely and prevent unauthorized access.</li>
+        <li>To provide notifications on quote reviews, status approvals, and project updates.</li>
+      </ul>
+      <div class="callout-box">
+        <div class="callout-title">&#128274; Core Principle</div>
+        <p class="callout-desc">We never monetize, harvest, rent, or sell your personal or project data to data brokers, ad networks, or third-party marketers.</p>
+      </div>
+    </article>
 
-<h2>7. User Consent</h2>
-<p>We request user consent before accessing SMS data. Users can revoke permissions at any time through device settings.</p>
+    <!-- 03. Permissions Usage -->
+    <article id="permissions" class="section-card">
+      <div class="card-header-row">
+        <span class="section-num">03</span>
+        <h2 class="section-heading">Device Permissions Usage</h2>
+      </div>
+      <p>
+        The BYOB mobile application declares only the minimal set of Android runtime permissions required for its feature set:
+      </p>
+      <ul>
+        <li>
+          <strong>Storage / Media Documents (<code>READ_EXTERNAL_STORAGE</code> / Media Picker):</strong> Used exclusively when you choose to attach specification documents, briefs, or image wireframes to your project quotation request.
+        </li>
+        <li>
+          <strong>Network Connectivity (<code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code>):</strong> Required to communicate with our cloud database pipeline, verify active sessions, and synchronize project milestones.
+        </li>
+        <li>
+          <strong>Vibration Feedback (<code>VIBRATE</code>):</strong> Enhances usability through subtle haptic confirmation upon successful quote submission and action triggers.
+        </li>
+      </ul>
+      <p style="font-size: 13.5px; color: var(--text-dim);">
+        Note: You can grant or revoke file permissions at any time through your Android Device Settings &gt; Apps &gt; BYOB &gt; Permissions.
+      </p>
+    </article>
 
-<h2>8. User Rights</h2>
-<p>Users can clear app data or uninstall the app to remove locally stored information. For account-related queries, users can contact us.</p>
+    <!-- 04. Data Storage & Security -->
+    <article id="storage" class="section-card">
+      <div class="card-header-row">
+        <span class="section-num">04</span>
+        <h2 class="section-heading">Data Storage, Security &amp; Encryption</h2>
+      </div>
+      <p>
+        We employ robust industry-standard safeguards to protect your personal and confidential project assets:
+      </p>
+      <ul>
+        <li><strong>Transport Layer Security (TLS 1.3):</strong> All network traffic between your device and the cloud API is encrypted end-to-end.</li>
+        <li><strong>Enterprise Database Architecture:</strong> Data is persisted in PostgreSQL instances with strict role-based access control (RBAC).</li>
+        <li><strong>Local Cache Protection:</strong> Active session tokens stored on your device leverage encrypted operating system secure storage.</li>
+        <li><strong>Isolated Client Scopes:</strong> Customers can only query and retrieve project records, quotes, and invoices associated with their verified account credentials.</li>
+      </ul>
+    </article>
 
-<h2>9. Children’s Privacy</h2>
-<p>This app is not intended for children under the age of 13.</p>
+    <!-- 05. Third-Party Services -->
+    <article id="sharing" class="section-card">
+      <div class="card-header-row">
+        <span class="section-num">05</span>
+        <h2 class="section-heading">Third-Party Infrastructure &amp; SDKs</h2>
+      </div>
+      <p>
+        BYOB integrates select trusted third-party providers strictly for infrastructure and authentication:
+      </p>
+      <ul>
+        <li><strong>Google Identity &amp; OAuth Services:</strong> Facilitates secure, one-tap account authentication (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--accent-cyan);">Google Privacy Policy</a>).</li>
+        <li><strong>Expo &amp; React Native Framework:</strong> Modern mobile runtime environment and native bridge libraries (<a href="https://expo.dev/privacy" target="_blank" rel="noopener" style="color: var(--accent-cyan);">Expo Privacy Policy</a>).</li>
+      </ul>
+      <p>No third-party analytics or behavioral ad trackers are embedded in the BYOB production release builds.</p>
+    </article>
 
-<h2>10. Contact Us</h2>
-<p>Email: support@rupeewise.com</p>
+    <!-- 06. User Rights & Data Deletion -->
+    <article id="rights" class="section-card">
+      <div class="card-header-row">
+        <span class="section-num">06</span>
+        <h2 class="section-heading">User Rights &amp; Account Deletion</h2>
+      </div>
+      <p>
+        In compliance with Google Play Store Developer Policies, GDPR, and global data privacy standards, you have the full right to:
+      </p>
+      <ul>
+        <li><strong>Access &amp; Export:</strong> Request a copy of all quotations, project records, and contact details linked to your account.</li>
+        <li><strong>Rectification:</strong> Correct or update your name, email, or telephone number at any time via in-app profile settings.</li>
+        <li><strong>Account &amp; Data Deletion:</strong> Request the permanent deletion of your account and associated project history from our systems.</li>
+      </ul>
+      <p>
+        To request complete account or project data erasure, email us at <strong style="color: var(--accent-cyan);">rajagopal333777@gmail.com</strong> with the subject line <code>[BYOB Account Deletion Request]</code>. Requests are processed within 7 business days.
+      </p>
+    </article>
+
+    <!-- 07. Children's Privacy -->
+    <article class="section-card">
+      <div class="card-header-row">
+        <span class="section-num">07</span>
+        <h2 class="section-heading">Children's Privacy Protection</h2>
+      </div>
+      <p>
+        BYOB is a professional business, project quotation, and client management tool. It is not intended for or directed toward children under 13 years of age. We do not knowingly collect personal information from minors.
+      </p>
+    </article>
+
+    <!-- 08. Contact Card -->
+    <article id="contact" class="contact-card">
+      <div class="hero-badge-pill" style="margin-bottom: 12px;">&#9993; Direct Communication Channel</div>
+      <h2 style="font-size: 24px; color: #fff; margin-bottom: 8px;">Have Questions About This Policy?</h2>
+      <p style="max-width: 540px; margin: 0 auto 16px; font-size: 14px;">
+        If you have questions, feedback, or data privacy requests regarding the <strong>BYOB</strong> platform, reach out directly to our engineering and privacy team:
+      </p>
+      <div class="font-mono" style="color: var(--accent-cyan); font-size: 15px; margin-bottom: 8px;">
+        rajagopal333777@gmail.com
+      </div>
+      <a href="mailto:rajagopal333777@gmail.com?subject=BYOB%20Privacy%20Inquiry" class="contact-email-btn font-mono">
+        <span>Send Email Message</span> &rarr;
+      </a>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 BYOB (Bring Your Own Budget). All rights reserved.</p>
+      <p style="margin-top: 6px;">
+        Hosted on <a href="https://github.com/RJMS37/privacy-policy" target="_blank" rel="noopener">GitHub Pages (RJMS37/privacy-policy)</a>
+      </p>
+    </footer>
+
+  </main>
 
 </body>
 </html>
-
-
